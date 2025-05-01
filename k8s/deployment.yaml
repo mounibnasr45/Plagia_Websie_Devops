@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plagia-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plagia
+  template:
+    metadata:
+      labels:
+        app: plagia
+    spec:
+      containers:
+      - name: plagia-container
+        image: plagia-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
